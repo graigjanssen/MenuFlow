@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root 'welcome#index'
 
+  get '/log_in' => 'users#log_in'
+  resources :parties
+  resources :menu_items
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

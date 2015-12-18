@@ -11,7 +11,37 @@
  * file per style scope.
  *
  *= require_tree .
- *= require_self
  *= require normalize
  *= require skeleton
- */
+ *= require_self
+*/
+
+
+
+body {
+  text-align: center;
+  background: radial-gradient(rgb(62, 73, 70), rgb(29, 33, 32));
+}
+
+.container {
+  color: white;
+}
+
+.button_to .main-b {
+  width: 80%;
+  margin: 10px auto;
+  padding: 25px 0 60px 0;
+  background: linear-gradient(to bottom right, rgb(32, 66, 133), rgb(48, 105, 147));
+  color: rgb(221, 221, 221);
+  font-size: 2.5em;
+  text-shadow: 4px 1px 6px rgb(53, 53, 53);
+}
+
+#welcome-box {
+  margin-top: 50px;
+  margin-bottom: 65px;
+}
+
+#welcome-box h1 {
+  font-size: 5em;
+}
