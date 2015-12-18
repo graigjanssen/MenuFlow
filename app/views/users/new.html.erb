@@ -1,0 +1,23 @@
+<div class="container">
+
+  <div class="row">
+    <div id="welcome-box" class="offset-by-two eight columns">
+      <h1>New Account</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="offset-by-one ten columns">
+      <%= form_for @user do |f| %>
+      <div class="form-element"><%= f.label 'First Name'%>
+      <%= f.text_field :first_name %></div>
+      <div class="form-element"><%= f.label 'Last Name'%>
+      <%= f.text_field :last_name %></div>
+      <div class="form-element"><%= f.label 'Email Address'%>
+      <%= f.text_field :email %></div>
+      <div class="form-element"><%= f.label 'Create Password (between 6-20 characters)'%>
+      <%= f.password_field :password %></div>
+      <div class="form-element"><%= f.submit %></div>
+      <% end %>
+    </div>
+  </div>
+</div>

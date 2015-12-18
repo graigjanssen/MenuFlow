@@ -21,10 +21,22 @@
 body {
   text-align: center;
   background: radial-gradient(rgb(65, 71, 71), rgb(33, 39, 42));
+  min-height: 600px;
 }
 
 .container {
   color: white;
+}
+
+.user-header {
+  margin: 2.5% 0;
+  background-color: rgba(21, 20, 25, 0.4);
+  border-bottom: 4px solid rgba(111, 123, 126, 0.68);
+  padding: 20px 0 20px 0;
+}
+
+input[type='text'], input[type='password'] {
+  color: black;
 }
 
 .button_to .main-b {
@@ -34,12 +46,53 @@ body {
   background: linear-gradient(to bottom right, rgb(32, 66, 133), rgb(48, 105, 147));
   color: rgb(221, 221, 221);
   font-size: 2.5em;
-  text-shadow: 4px 1px 6px rgb(53, 53, 53);
+  text-shadow: 3px 1px 6px rgb(33, 33, 33);
+}
+
+.button_to .main-b:hover {
+  background: linear-gradient(to bottom right, rgb(24, 55, 115), rgb(71, 129, 172));
+  color: rgb(221, 221, 221);
+  font-size: 2.6em;
+  text-shadow: 3px 1px 2px rgb(150,150,150);
+}
+
+.button_to .logout-b {
+  width: 60%;
+  margin: 10px auto;
+  padding: 0 0 20px 0;
+  background: linear-gradient(to bottom right, rgb(126, 32, 15), rgb(221, 78, 58));
+  color: rgb(241, 241, 241);
+  font-size: 1em;
+  text-shadow: none;
+}
+
+.button_to .logout-b:hover {
+  background: linear-gradient(to bottom right, rgb(126, 32, 15), rgb(193, 38, 17));
+  color: rgb(251, 251, 251);
+  font-size: 1em;
+  text-shadow: none;
+}
+
+input[type="submit"] {
+  width: 30%;
+  margin: 10px auto;
+  padding: 10px 0 45px 0;
+  background: linear-gradient(to bottom right, rgb(32, 66, 133), rgb(48, 105, 147));
+  color: rgb(221, 221, 221);
+  font-size: 1.5em;
+  text-shadow: 4px 1px 6px rgb(33, 33, 33);
+}
+
+input[type="submit"]:hover {
+  background: linear-gradient(to bottom right, rgb(24, 55, 115), rgb(71, 129, 172));
+  color: rgb(221, 221, 221);
+  font-size: 1.6em;
+  text-shadow: 3px 1px 2px rgb(150,150,150);
 }
 
 #welcome-box {
   margin-top: 50px;
-  margin-bottom: 65px;
+  margin-bottom: 50px;
 }
 
 #welcome-box h1 {
