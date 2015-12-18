@@ -98,3 +98,8 @@ input[type="submit"]:hover {
 #welcome-box h1 {
   font-size: 5em;
 }
+
+.error {
+  color: red;
+  font-weight: 200%;
+}

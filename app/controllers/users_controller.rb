@@ -8,8 +8,13 @@ class UsersController < ApplicationController
   end
 
   def create
-    User.create( user_params)
-    redirect_to log_in_path
+    user = User.create( user_params)
+    if user.save
+      redirect_to log_in_path
+    else
+      flash[:error] = user.errors.full_messages
+      redirect_to new_user_path
+    end
   end
 
   def profile
