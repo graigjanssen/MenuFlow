@@ -6,12 +6,15 @@ Rails.application.routes.draw do
   get '/profile' => 'users#profile'
   post '/users' => 'users#create'
 
+  get '/orders' => 'orders#index'
+  
   post '/sessions' => 'sessions#create'
   delete '/sessions' => 'sessions#destroy'
 
-  resources :parties
+  resources :parties do
+    resources :orders
+  end
   resources :menu_items
-  resources :orders
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

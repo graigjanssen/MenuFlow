@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="user-header row">
+    <div class="three columns"><%= button_to 'Parties', parties_path, method: :get, class: 'nav-b'%></div>
+    <div class="six columns"><h2>MenuFlow</h2>
+    <h5>Orders for the <%= @party.name %> Party</h5></div>
+    <div class="three columns"></div>
+  </div>
+  <div class="orders-area row">
+    <div class="twelve columns">
+      <h4>Orders</h4>
+      <table class="orders">
+        <thead>
+          <th class="orders-head">Item</th>
+          <th class="orders-head">Price</th>
+          <th class="orders-head">Remove</th>
+        </thead>
+        <% @party_orders.each do |order| %>
+          <tr>
+            <td class="orders-cell"><%=order.menu_item.name%></td>
+            <td class="orders-cell"><%=order.menu_item.price%></td>
+            <td class="orders-cell"><%=link_to 'Remove', party_order_path(@party, order), method: :delete, class: 'del-link'%></td>
+          </tr>
+        <% end %>
+      </table>
+
+      <h5>Bill Total: $<%= @party.bill_total %></h5>
+    </div>
+  </div>
+  <div class="menu-area row">
+    <div class="offset-by-one ten columns">
+      <table class="menu">
+        <thead>
+          <th class="menu-head">Category</th>
+          <th class="menu-head">Item</th>
+          <th class="menu-head">Description</th>
+          <th class="menu-head">Price</th>
+          <th class="menu-head">Add to Order</th>
+        </thead>
+        <% @menu_items.each do |item| %>
+        <tr class="menu-row">
+          <td class="menu-cell"><%= item.category %></td>
+          <td class="menu-cell"><%= item.name%></td>
+          <td class="menu-cell"><%= item.description%></td>
+          <td class="menu-cell">$<%= item.price%></td>
+          <%= form_for @order, url: party_orders_path(@party) do |f| %>
+          <%= f.hidden_field :party_id, value: @party.id %>
+          <%= f.hidden_field :menu_item_id, value: item.id %>
+          <td class="menu-cell"><%= f.submit 'Add'%></td>
+          <% end %>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

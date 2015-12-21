@@ -1,0 +1,26 @@
+<%= javascript_include_tag 'orders', 'data-turbolinks-track' => true %>
+<div class="container">
+  <div class="user-header row">
+    <div class="three columns"><%= button_to 'Parties', parties_path, method: :get, class: 'nav-b'%></div>
+    <div class="six columns"><h2>MenuFlow</h2>
+    <h5>All Orders</h5></div>
+    <div class="three columns"></div>
+  </div>
+
+  <table class="all-orders">
+    <thead>
+      <th class="all-orders-head">Item</th>
+      <th class="all-orders-head">Party</th>
+      <th class="all-orders-head">Time Active</th>
+      <th class="all-orders-head">Mark As Done</th>
+    </thead>
+    <% @orders.each do |order| %>
+      <tr>
+        <td class="all-orders-cell"><%= order.menu_item.name %></td>
+        <td class="all-orders-cell"><%= order.party.name %></td>
+        <td class="timestamp all-orders-cell"><%= order.created_at.strftime('%l %M %P') %></td>
+        <td class="all-orders-cell"><%= link_to 'Done', party_order_path(order.party, order), method: :patch, class: 'done-link'%></td>
+        <% end %>
+      </tr>
+  </table>
+</div>

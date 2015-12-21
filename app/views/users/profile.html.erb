@@ -4,4 +4,45 @@
     <div class="six columns"><h2>Menu Manager</h2></div>
     <div class="three columns"><%= button_to 'Log Out', sessions_path, class: 'logout-b', method: :delete %></div>
   </div>
+  <div class="new-item row">
+    <div class="offset-by-four four columns"><h3>New Item</h3></div>
+  </div>
+  <div class="new-item-form row">
+    <%= form_for @menu_item do |f| %>
+      <div class="two columns"><%= f.label 'Category' %>
+      <%= f.select(:category, ['Appetizers', 'Entrees', 'Drinks', 'Desserts'])%></div>
+      <div class="three columns"><%= f.label 'Item Name'%><%= f.text_field :name %></div>
+      <div class="three columns"><%= f.label 'Description'%><%= f.text_field :description %></div>
+      <div class="three columns"><%= f.label 'Price'%><%= f.number_field :price %></div>
+  </div>
+  <div class="new-item-submit row">
+    <div class="twelve columns">
+      <%= f.submit 'Create' %>
+    </div>
+  </div>
+  <% end %>
+  <div class="menu-area row">
+    <div class="offset-by-one ten columns">
+      <table class="menu">
+        <thead>
+          <th class="menu-head">Category</th>
+          <th class="menu-head">Item</th>
+          <th class="menu-head">Description</th>
+          <th class="menu-head">Price</th>
+          <th class="menu-head">Edit</th>
+          <th class="menu-head">Delete</th>
+        </thead>
+        <% @menu_items.each do |item| %>
+        <tr class="menu-row">
+          <td class="menu-cell"><%= item.category %></td>
+          <td class="menu-cell"><%= item.name%></td>
+          <td class="menu-cell"><%= item.description%></td>
+          <td class="menu-cell">$<%= item.price%></td>
+          <td class="menu-cell"><%= link_to 'Edit', edit_menu_item_path(item), class: 'edit-link'%></td>
+          <td class="menu-cell"><%= link_to 'Delete', menu_item_path(item), method: :delete, class: 'del-link'%></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
 </div>

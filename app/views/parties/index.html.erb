@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="user-header row">
+    <div class="three columns"><%= button_to 'Kitchen', orders_path, method: :get, class: 'nav-b'%></div>
+    <div class="six columns"><h2>MenuFlow</h2>
+    <h5>Guest Parties</h5></div>
+    <div class="three columns"></div>
+  </div>
+  <div class="new-item row">
+    <div class="offset-by-four four columns"><h3>New Party</h3></div>
+  </div>
+  <div class="new-item-form row">
+    <%= form_for @party do |f| %>
+      <div class="offset-by-three four columns"><%= f.label 'Name' %>
+      <%= f.text_field :name %></div>
+      <div class="three columns"><%= f.label 'Number of Guests'%><%= f.number_field :size %></div>
+  </div>
+  <div class="new-item-submit row">
+    <div class="twelve columns">
+      <%= f.submit 'Create' %>
+    </div>
+  </div>
+  <% end %>
+  <div class="parties-area row">
+    <div class="offset-by-one ten columns">
+      <table class="parties">
+        <thead>
+          <th class="parties-head">Name</th>
+          <th class="parties-head">Size</th>
+          <th class="parties-head">Balance</th>
+          <th class="parties-head">Paid?</th>
+          <th class="parties-head">Orders</th>
+          <th class="parties-head">Delete</th>
+        </thead>
+        <% @parties.each do |party| %>
+        <tr class="party-row">
+          <td class="party-cell"><%= party.name %></td>
+          <td class="party-cell"><%= party.size %></td>
+          <td class="party-cell">$<%= party.bill_total %></td>
+          <td class="party-cell">No</td>
+          <td class="party-cell"><%= button_to 'Orders', new_party_order_path(party), method: :get, class: 'new-b'%></td>
+          <td class="party-cell"><%= link_to 'Delete', party_path(party), method: :delete, class: 'del-link'%></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

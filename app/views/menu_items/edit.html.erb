@@ -1,0 +1,26 @@
+<div class="container">
+
+  <div class="user-header row">
+    <div class="three columns"><h5></h5></div>
+    <div class="six columns"><h2>Menu Manager</h2></div>
+    <div class="three columns"><%= button_to 'Log Out', sessions_path, class: 'logout-b', method: :delete %></div>
+  </div>
+  <div class="new-item row">
+    <div class="offset-by-four four columns"><h3>Edit Item</h3></div>
+  </div>
+  <div class="new-item-form row">
+    <%= form_for @menu_item do |f| %>
+      <div class="two columns"><%= f.label 'Category' %>
+      <%= f.select(:category, ['Appetizers', 'Entrees', 'Drinks', 'Desserts'])%></div>
+      <div class="three columns"><%= f.label 'Item Name'%><%= f.text_field :name %></div>
+      <div class="three columns"><%= f.label 'Description'%><%= f.text_field :description %></div>
+      <div class="three columns"><%= f.label 'Price'%><%= f.number_field :price %></div>
+  </div>
+  <div class="new-item-submit row">
+    <div class="twelve columns">
+      <%= f.submit 'Update' %>
+      <% end %>
+    </div>
+  </div>
+
+</div>
