@@ -21,7 +21,7 @@
   </div>
   <% end %>
   <div class="parties-area row">
-    <div class="offset-by-one ten columns">
+    <div class="twelve columns">
       <table class="parties">
         <thead>
           <th class="parties-head">Name</th>
@@ -32,14 +32,50 @@
           <th class="parties-head">Delete</th>
         </thead>
         <% @parties.each do |party| %>
-        <tr class="party-row">
-          <td class="party-cell"><%= party.name %></td>
-          <td class="party-cell"><%= party.size %></td>
-          <td class="party-cell">$<%= '%.2f' % party.bill_total %></td>
-          <td class="party-cell">No</td>
-          <td class="party-cell"><%= button_to 'Orders', new_party_order_path(party), method: :get, class: 'new-b'%></td>
-          <td class="party-cell"><%= link_to 'Delete', party_path(party), method: :delete, class: 'del-link'%></td>
-        </tr>
+          <% if party.paid != 'yes' %>
+            <tr class="party-row">
+              <td class="party-cell"><%= party.name %></td>
+              <td class="party-cell"><%= party.size %></td>
+              <td class="party-cell">$<%= '%.2f' % party.bill_total %></td>
+              <td class="party-cell">
+                <%= form_for party, url: party_path(party), method: :patch do |f| %>
+                  <%= f.hidden_field :paid, value: 'yes' %>
+                  <%= f.submit 'Paid', class: 'table-b margin-adjust' %>
+                <% end %>
+              </td>
+              <td class="party-cell"><%= button_to 'Orders', new_party_order_path(party), method: :get, class: 'new-b'%></td>
+              <td class="party-cell"><%= link_to 'Delete', party_path(party), method: :delete, class: 'del-link'%></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </table>
+    </div>
+  </div>
+
+  <div class="new-item row">
+    <div class="offset-by-four four columns"><h3>Paid Parties</h3></div>
+  </div>
+
+  <div class="row">
+    <div class="twelve columns">
+      <table>
+        <thead>
+          <th>Name</th>
+          <th>Size</th>
+          <th>Balance</th>
+          <th>Receipt</th>
+          <th>Delete</th>
+        </thead>
+        <% @parties.each do |party| %>
+          <% if party.paid == 'yes' %>
+            <tr>
+              <td><%= party.name %></td>
+              <td><%= party.size %></td>
+              <td>$<%= '%.2f' % party.bill_total %></td>
+              <td><%= link_to 'View', party_path(party)%></td>
+              <td><%= link_to 'Delete', party_path(party), method: :delete, class: 'del-link'%></td>
+            </tr>
+          <% end %>
         <% end %>
       </table>
     </div>

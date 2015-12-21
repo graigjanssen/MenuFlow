@@ -79,7 +79,8 @@ input[type='number'] {
 
 .button_to .new-b {
   width: 80%;
-  margin: 25px 0 0 0;
+  margin-top: 25px;
+  margin-bottom: 0;
   padding: 0;
   background: linear-gradient(to bottom right, rgb(32, 133, 39), rgb(58, 166, 88));
   color: rgb(241, 241, 241);
@@ -113,6 +114,10 @@ input[type="submit"].table-b {
 
 input[type="submit"].table-b:hover {
   font-size: .75em;
+}
+
+input[type="submit"].margin-adjust {
+  margin-top: 30px;
 }
 
 input[type="submit"] {
@@ -159,7 +164,7 @@ table {
 }
 
 .party-cell {
-  padding: 0 10px 0 10px;
+  padding: 0 10px;
 }
 .error {
   color: red;

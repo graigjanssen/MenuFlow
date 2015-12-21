@@ -5,8 +5,18 @@ class PartiesController < ApplicationController
     @parties = Party.all
   end
 
+  def show
+    @current_party = Party.find(params[:id])
+  end
+  
   def create
     Party.create( party_params )
+    redirect_to parties_path
+  end
+
+  def update
+    party = Party.find(params[:id])
+    party.update (party_params)
     redirect_to parties_path
   end
 
