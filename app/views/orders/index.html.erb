@@ -15,12 +15,17 @@
       <th class="all-orders-head">Mark As Done</th>
     </thead>
     <% @orders.each do |order| %>
-      <tr>
-        <td class="all-orders-cell"><%= order.menu_item.name %></td>
-        <td class="all-orders-cell"><%= order.party.name %></td>
-        <td class="timestamp all-orders-cell"><%= order.created_at.strftime('%B %d, %Y %H:%M:%S')%></td>
-        <td class="all-orders-cell"><%= link_to 'Done', party_order_path(order.party, order), method: :patch, class: 'done-link'%></td>
-        <% end %>
+      <% if (order.done != 'yes') %>
+        <tr>
+          <td class="all-orders-cell"><%= order.menu_item.name %></td>
+          <td class="all-orders-cell"><%= order.party.name %></td>
+          <td class="timestamp all-orders-cell"><%= order.created_at.strftime('%B %d, %Y %H:%M:%S')%></td>
+          <%= form_for order, url: party_order_path(order.party, order), method: :patch do |f| %>
+            <%= f.hidden_field :done, value: 'yes' %>
+            <td class="all-orders-cell"><%= f.submit 'Done', class: 'table-b' %></td>
+          <% end %>
       </tr>
+      <% end %>
+    <% end %>
   </table>
 </div>

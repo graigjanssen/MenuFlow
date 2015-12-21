@@ -103,6 +103,18 @@ input[type='number'] {
   font-size: 1.2em;
 }
 
+input[type="submit"].table-b {
+  width: 80%;
+  font-size: .75em;
+  padding: 0;
+  background: linear-gradient(to bottom right, rgb(32, 66, 133), rgb(48, 105, 147));
+  color: rgb(221, 221, 221);
+}
+
+input[type="submit"].table-b:hover {
+  font-size: .75em;
+}
+
 input[type="submit"] {
   width: 30%;
   margin: 10px auto;

@@ -27,7 +27,7 @@
     </div>
   </div>
   <div class="menu-area row">
-    <div class="offset-by-one ten columns">
+    <div class="twelve columns">
       <table class="menu">
         <thead>
           <th class="menu-head">Category</th>
@@ -45,7 +45,7 @@
           <%= form_for @order, url: party_orders_path(@party) do |f| %>
           <%= f.hidden_field :party_id, value: @party.id %>
           <%= f.hidden_field :menu_item_id, value: item.id %>
-          <td class="menu-cell"><%= f.submit 'Add'%></td>
+          <td class="menu-cell"><%= f.submit 'Add', class: 'table-b'%></td>
           <% end %>
         </tr>
         <% end %>

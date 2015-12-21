@@ -13,17 +13,17 @@
           <p class="error"><%= error %></p>
         <% end %>
       <% end %>
-      
+
       <%= form_for @user do |f| %>
-      <div class="form-element"><%= f.label 'First Name'%>
-      <%= f.text_field :first_name %></div>
-      <div class="form-element"><%= f.label 'Last Name'%>
-      <%= f.text_field :last_name %></div>
-      <div class="form-element"><%= f.label 'Email Address'%>
-      <%= f.text_field :email %></div>
-      <div class="form-element"><%= f.label 'Create Password (between 6-20 characters)'%>
-      <%= f.password_field :password %></div>
-      <div class="form-element"><%= f.submit %></div>
+        <div class="form-element"><%= f.label 'First Name'%>
+        <%= f.text_field :first_name %></div>
+        <div class="form-element"><%= f.label 'Last Name'%>
+        <%= f.text_field :last_name %></div>
+        <div class="form-element"><%= f.label 'Email Address'%>
+        <%= f.text_field :email %></div>
+        <div class="form-element"><%= f.label 'Create Password (between 6-20 characters)'%>
+        <%= f.password_field :password %></div>
+        <div class="form-element"><%= f.submit %></div>
       <% end %>
     </div>
   </div>
