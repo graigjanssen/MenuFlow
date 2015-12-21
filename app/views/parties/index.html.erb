@@ -35,7 +35,7 @@
         <tr class="party-row">
           <td class="party-cell"><%= party.name %></td>
           <td class="party-cell"><%= party.size %></td>
-          <td class="party-cell">$<%= party.bill_total %></td>
+          <td class="party-cell">$<%= '%.2f' % party.bill_total %></td>
           <td class="party-cell">No</td>
           <td class="party-cell"><%= button_to 'Orders', new_party_order_path(party), method: :get, class: 'new-b'%></td>
           <td class="party-cell"><%= link_to 'Delete', party_path(party), method: :delete, class: 'del-link'%></td>

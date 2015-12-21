@@ -1,4 +1,5 @@
 class Party < ActiveRecord::Base
+  before_destroy :destroy_orders
   has_many :orders
   has_many :menu_items, through: :orders
   has_many :locations
@@ -10,6 +11,10 @@ class Party < ActiveRecord::Base
       total += order.menu_item.price
     end
     total
+  end
+
+  def destroy_orders
+    self.orders.destroy_all
   end
 
 end

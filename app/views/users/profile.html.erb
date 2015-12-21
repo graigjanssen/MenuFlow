@@ -37,7 +37,7 @@
           <td class="menu-cell"><%= item.category %></td>
           <td class="menu-cell"><%= item.name%></td>
           <td class="menu-cell"><%= item.description%></td>
-          <td class="menu-cell">$<%= item.price%></td>
+          <td class="menu-cell">$<%= '%.2f' % item.price%></td>
           <td class="menu-cell"><%= link_to 'Edit', edit_menu_item_path(item), class: 'edit-link'%></td>
           <td class="menu-cell"><%= link_to 'Delete', menu_item_path(item), method: :delete, class: 'del-link'%></td>
         </tr>

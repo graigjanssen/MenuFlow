@@ -17,13 +17,13 @@
         <% @party_orders.each do |order| %>
           <tr>
             <td class="orders-cell"><%=order.menu_item.name%></td>
-            <td class="orders-cell"><%=order.menu_item.price%></td>
+            <td class="orders-cell"><%= '%.2f' % order.menu_item.price%></td>
             <td class="orders-cell"><%=link_to 'Remove', party_order_path(@party, order), method: :delete, class: 'del-link'%></td>
           </tr>
         <% end %>
       </table>
 
-      <h5>Bill Total: $<%= @party.bill_total %></h5>
+      <h5>Bill Total: $<%= '%.2f' % @party.bill_total %></h5>
     </div>
   </div>
   <div class="menu-area row">
@@ -41,7 +41,7 @@
           <td class="menu-cell"><%= item.category %></td>
           <td class="menu-cell"><%= item.name%></td>
           <td class="menu-cell"><%= item.description%></td>
-          <td class="menu-cell">$<%= item.price%></td>
+          <td class="menu-cell">$<%= '%.2f' % item.price%></td>
           <%= form_for @order, url: party_orders_path(@party) do |f| %>
           <%= f.hidden_field :party_id, value: @party.id %>
           <%= f.hidden_field :menu_item_id, value: item.id %>

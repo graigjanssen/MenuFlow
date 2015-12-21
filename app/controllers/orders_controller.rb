@@ -19,7 +19,7 @@ class OrdersController < ApplicationController
 
   def destroy
     party = Party.find(params[:party_id])
-    Order.delete( params[:id] )
+    Order.destroy( params[:id] )
     redirect_to new_party_order_path(party)
   end
 

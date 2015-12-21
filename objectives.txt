@@ -1,0 +1,18 @@
+1.  Write JS function for order timer
+  Make an array containing all the order created_at times
+  Iterate through with conditional
+    if current time - creation time > X, do something...
+
+2.  Add "Order Done" feature
+  New migration to add done column to orders table
+  Hidden form within @orders.each loop
+  Add conditional to @orders.each loop, only display if not done
+3.  Add "Receipts" feature
+  Hidden form on Parties table, 'Paid' submit button
+  Make parties table conditional, don't display paid parties
+  Button (link) below Parties table, 'receipts'.  Goes to page with conditional table, only displays paid parties
+4.  Fix bug with deleting PartiesController
+
+5.  Style
+6.  Readme
+7.  Heroku
