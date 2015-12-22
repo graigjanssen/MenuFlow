@@ -3,7 +3,7 @@
     <div class="three columns"><%= button_to 'Kitchen', orders_path, method: :get, class: 'nav-b'%></div>
     <div class="six columns"><h2>MenuFlow</h2>
     <h5>Guest Parties</h5></div>
-    <div class="three columns"></div>
+    <div class="three columns"><%= button_to 'Home', root_path, method: :get, class: 'nav-b'%></div>
   </div>
   <div class="new-item row">
     <div class="offset-by-four four columns"><h3>New Party</h3></div>
@@ -57,7 +57,7 @@
   </div>
 
   <div class="row">
-    <div class="twelve columns">
+    <div class="offset-by-one ten columns">
       <table>
         <thead>
           <th>Name</th>

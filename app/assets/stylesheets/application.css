@@ -28,6 +28,10 @@ body {
   color: white;
 }
 
+.row {
+  margin: 20px auto;
+}
+
 .user-header {
   margin: 2.5% 0;
   background-color: rgba(21, 20, 25, 0.4);
@@ -83,14 +87,14 @@ input[type='number'] {
   margin-bottom: 0;
   padding: 0;
   background: linear-gradient(to bottom right, rgb(32, 133, 39), rgb(58, 166, 88));
-  color: rgb(241, 241, 241);
+  color: rgb(235, 235, 235);
   font-size: .75em;
   text-shadow: none;
 }
 
 .button_to .new-b:hover {
-  background: linear-gradient(to bottom right, rgb(24, 115, 49), rgb(71, 172, 75));
-  color: rgb(251, 251, 251);
+  background: linear-gradient(to bottom right, rgb(13, 88, 34), rgb(93, 189, 97));
+  color: rgb(255, 255, 255);
   font-size: .75em;
   text-shadow: none;
 }
@@ -117,7 +121,7 @@ input[type="submit"].table-b:hover {
 }
 
 input[type="submit"].margin-adjust {
-  margin-top: 30px;
+  margin-top: 35px;
 }
 
 input[type="submit"] {
@@ -146,6 +150,12 @@ input[type="submit"]:hover {
   font-size: 5em;
 }
 
+#tip-tips {
+  padding: 10px;
+  background-color: rgba(25, 33, 42, 0.54);
+  border-radius: 2%;
+}
+
 .new-item {
   margin-bottom: -30px;
 }
@@ -163,8 +173,38 @@ table {
   font-size: 1.15em;
 }
 
+th {
+  text-align: center;
+  font-size: 1.2em;
+}
+
+td {
+  padding: 10px;
+}
+
+td:first-child, th:first-child {
+  padding-left: 15px;
+}
+
+td:last-child, th:last-child {
+  padding-right: 15px;
+}
+
 .party-cell {
   padding: 0 10px;
+  margin: -20px 0;
+}
+
+.menu {
+  background-color: rgba(10, 25, 20, 0.38);
+  border-top-left-radius: 3%;
+  border-top-right-radius: 3%;
+
+}
+
+.receipt-total {
+  font-size: 1.5em;
+  font-weight: bold;
 }
 .error {
   color: red;
