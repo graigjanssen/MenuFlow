@@ -9,15 +9,14 @@ function colorOrders() {
   var orderTimes = $('.timestamp');
   for (var i = 0; i < orderTimes.length; i++) {
     var d = new Date($(orderTimes[i]).text());
-    if ((Date.now() - d) <= 420000) {
+    if ((Date.now() - d) <= 30000) {
       $(orderTimes[i]).css('color','rgb(5, 237, 14)');
-    } else if ((Date.now() - d) <= 900000) {
+    } else if ((Date.now() - d) <= 600000) {
       $(orderTimes[i]).css('color','rgb(235, 240, 5)');
     } else if ((Date.now() - d) > 900000) {
       $(orderTimes[i]).css('color','rgb(240, 5, 5)');
     }
   }
-  console.log('checked');
 }
 
 function orderTimer() {
