@@ -20,7 +20,12 @@ class OrdersController < ApplicationController
   def update
     order = Order.find(params[:id])
     order.update (order_params)
-    redirect_to orders_path
+    party = Party.find(params[:party_id])
+    if order.done == 'yes'
+      redirect_to orders_path
+    else
+      redirect_to new_party_order_path(party)
+    end
   end
 
   def destroy
@@ -32,7 +37,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:party_id, :menu_item_id, :done)
+    params.require(:order).permit(:party_id, :menu_item_id, :done, :comments)
   end
 
 end

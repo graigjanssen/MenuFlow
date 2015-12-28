@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="user-header row">
+    <div class="three columns"><h5>Hi, <%= @current_user.first_name %>!</h5></div>
+    <div class="six columns"><h2>Employees</h2>
+    <%= button_to 'Manage Menu', profile_path, method: :get, class: 'nav-b'%></div>
+    <div class="three columns"><%= button_to 'Log Out', sessions_path, class: 'logout-b', method: :delete %></div>
+  </div>
+</div>

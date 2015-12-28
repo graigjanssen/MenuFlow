@@ -20,6 +20,12 @@
             <td class="orders-cell"><%= '%.2f' % order.menu_item.price%></td>
             <td class="orders-cell"><%=link_to 'Remove', party_order_path(@party, order), method: :delete, class: 'del-link'%></td>
           </tr>
+          <tr>
+            <%= form_for order, url: party_order_path(order.party, order), method: :patch do |f| %>
+            <td class="orders-cell"><%= f.text_field :comments, placeholder: 'Comments'%></td>
+            <td class="orders-cell"><%= f.submit 'Add', class: 'table-b' %></td>
+            <% end %>
+          </tr>
         <% end %>
       </table>
 

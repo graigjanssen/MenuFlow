@@ -11,6 +11,7 @@
     <thead>
       <th class="all-orders-head">Item</th>
       <th class="all-orders-head">Party</th>
+      <th class="all-orders-head">Comments</th>
       <th class="all-orders-head">Time Active</th>
       <th class="all-orders-head">Mark As Done</th>
     </thead>
@@ -19,6 +20,7 @@
         <tr>
           <td class="all-orders-cell"><%= order.menu_item.name %></td>
           <td class="all-orders-cell"><%= order.party.name %></td>
+          <td class="all-orders-cell"><%= order.comments %></td>
           <td class="timestamp all-orders-cell"><%= order.created_at.strftime('%B %d, %Y %H:%M:%S')%></td>
           <%= form_for order, url: party_order_path(order.party, order), method: :patch do |f| %>
             <%= f.hidden_field :done, value: 'yes' %>
