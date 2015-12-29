@@ -26,6 +26,9 @@ body {
 
 .container {
   color: white;
+  margin: 0 auto;
+  width: 100%;
+
 }
 
 .row {
@@ -41,6 +44,7 @@ body {
 
 input[type='text'], input[type='password'], input[type='number'], select {
   color: black;
+  width: 95%;
 }
 
 input[type='number'] {

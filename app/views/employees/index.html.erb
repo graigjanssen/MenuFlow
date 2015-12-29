@@ -5,4 +5,32 @@
     <%= button_to 'Manage Menu', profile_path, method: :get, class: 'nav-b'%></div>
     <div class="three columns"><%= button_to 'Log Out', sessions_path, class: 'logout-b', method: :delete %></div>
   </div>
+  <div class="new-item row">
+    <div class="offset-by-four four columns"><h3>New Employee</h3></div>
+  </div>
+  <div class="new-item-form row">
+    <%= form_for @employee do |f| %>
+      <div class="two columns"><%= f.label 'Position' %>
+      <%= f.select(:position, ['Server', 'Cook', 'Host'])%></div>
+      <div class="two columns"><%= f.label 'First Name'%><%= f.text_field :first_name %></div>
+      <div class="two columns"><%= f.label 'Last Name'%><%= f.text_field :last_name %></div>
+      <div class="two columns"><%= f.label 'Phone'%><%= f.text_field :phone %></div>
+      <div class="three columns"><%= f.label 'Email'%><%= f.text_field :email %></div>
+  </div>
+  <div class="new-item-submit row">
+    <div class="twelve columns">
+      <%= f.submit 'Add' %>
+    </div>
+  </div>
+  <% end %>
+  <div class="row">
+    <% @employees.each do |employee| %>
+    <div class="four columns employee-box">
+      <h4><%= employee.first_name %> <%= employee.last_name%></h4>
+      <h5><%= employee.position %></h5>
+      <h6><%= employee.phone %> - <%= employee.email %></h6>
+    </div>
+    <% end %>
+  </div>
+
 </div>
