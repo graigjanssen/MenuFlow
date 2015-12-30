@@ -23,13 +23,20 @@
     </div>
   </div>
   <% end %>
-  <div class="row">
+  <div class="items row">
     <% @employees.each do |employee| %>
-    <div class="four columns employee-box">
-      <h4><%= employee.first_name %> <%= employee.last_name%></h4>
-      <h5><%= employee.position %></h5>
-      <h6><%= employee.phone %> - <%= employee.email %></h6>
-    </div>
+    <% if (@employees.index(employee) % 3) == 0 %>
+      </div>
+      <div class="items row">
+    <% end %>
+      <div class="four columns item-box">
+        <h4><%=employee.first_name%> <%=employee.last_name%></h4>
+        <h5><%=employee.position%></h5>
+        <h6>Phone: <%=employee.phone%></h6>
+        <h6>Email: <a href="mailto:<%=employee.email%>"><%= employee.email%></a></h6>
+        <span class="item-box-link"><%= link_to 'Edit', edit_employee_path(employee)%></span>
+        <span class="item-box-link"><%= link_to 'Delete', employee_path(employee), method: :delete%></span>
+      </div>
     <% end %>
   </div>
 

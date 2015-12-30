@@ -205,6 +205,31 @@ td:last-child, th:last-child {
   border-top-right-radius: 3%;
 
 }
+.items {
+  margin: 0 auto;
+}
+.item-box {
+  background-color: rgba(67, 78, 82, 0.8);
+  min-height: 315px;
+  margin: 10px;
+  padding: 10px;
+  border: 2px solid rgb(108, 122, 136);
+  border-radius: 2.5%;
+  box-shadow: 3px 3px 7px rgb(18, 36, 31);
+}
+.item-box h4 {
+  margin-bottom: 5px;
+}
+.item-box h6 {
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+.item-box-link {
+  margin: 15px;
+  padding: 15px;
+  font-size: 1.4em;
+}
 
 .receipt-total {
   font-size: 1.5em;

@@ -12,6 +12,7 @@ class EmployeesController < ApplicationController
   end
 
   def edit
+    current_user
     @employee = Employee.find(params[:id])
   end
 
