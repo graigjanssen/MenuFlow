@@ -6,9 +6,13 @@ class OrdersController < ApplicationController
 
   def new
     @party = Party.find(params[:party_id])
-    @menu_items = MenuItem.all
     @party_orders = @party.orders.all
     @order = Order.new
+
+    @appetizers = MenuItem.where(category: 'Appetizers')
+    @entrees = MenuItem.where(category: 'Entrees')
+    @drinks = MenuItem.where(category: 'Drinks')
+    @desserts = MenuItem.where(category: 'Desserts')
   end
 
   def create

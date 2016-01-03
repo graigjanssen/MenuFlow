@@ -5,4 +5,19 @@
     <%= button_to 'Employees', employees_path, method: :get, class: 'nav-b'%></div>
     <div class="three columns"><%= button_to 'Log Out', sessions_path, class: 'logout-b', method: :delete %></div>
   </div>
+  <div class="row">
+    <%= form_for @employee do |f| %>
+    <div class="four columns"><%= f.label 'First Name'%><%=f.text_field :first_name%></div>
+    <div class="four columns"><%= f.label 'Last Name'%><%=f.text_field :last_name%></div>
+    <div class="three columns"><%= f.label 'Position'%><%=f.select(:position, ['Server', 'Cook', 'Host'])%></div>
+  </div>
+  <div class="row">
+    <div class="offset-by-two four columns"><%=f.label 'Phone'%><%=f.text_field :phone %></div>
+    <div class="four columns"><%=f.label 'Email'%><%=f.text_field :email %></div>
+  </div>
+  <div class="row">
+    <div class="twelve columns"><%=f.submit 'Update'%></div>
+  </div>
+  <% end %>
+
 </div>

@@ -21,7 +21,11 @@ class UsersController < ApplicationController
     authenticate!
     current_user
     @menu_item = MenuItem.new
-    @menu_items = MenuItem.all
+
+    @appetizers = MenuItem.where(category: 'Appetizers')
+    @entrees = MenuItem.where(category: 'Entrees')
+    @drinks = MenuItem.where(category: 'Drinks')
+    @desserts = MenuItem.where(category: 'Desserts')
   end
 
   private

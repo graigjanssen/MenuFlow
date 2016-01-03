@@ -6,13 +6,13 @@
     </div>
   </div>
   <div class="row">
-    <div class="offset-by-one ten columns">
+    <div class="offset-by-three six columns">
     <%= form_tag sessions_path do %>
     <div class="form-element"><%= label_tag 'Email' %>
     <%= text_field_tag :email %></div>
     <div class="form-element"><%= label_tag 'Password' %>
     <%= password_field_tag :password %></div>
-    <div class="form-element"><%= submit_tag 'Log In'%></div>
+    <div class="form-element"><%= submit_tag 'Log In', class: 'main-b'%></div>
     <% end %>
     <%= link_to 'Create Account', new_user_path %>
     </div>

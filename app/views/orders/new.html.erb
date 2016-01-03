@@ -5,57 +5,133 @@
     <h5>Orders for the <%= @party.name %> Party</h5></div>
     <div class="three columns"></div>
   </div>
-  <div class="orders-area row">
-    <div class="offset-by-two eight columns">
-      <h4>Orders</h4>
-      <table class="orders">
-        <thead>
-          <th class="orders-head">Item</th>
-          <th class="orders-head">Price</th>
-          <th class="orders-head">Remove</th>
-        </thead>
-        <% @party_orders.each do |order| %>
-          <tr>
-            <td class="orders-cell"><%=order.menu_item.name%></td>
-            <td class="orders-cell"><%= '%.2f' % order.menu_item.price%></td>
-            <td class="orders-cell"><%=link_to 'Remove', party_order_path(@party, order), method: :delete, class: 'del-link'%></td>
-          </tr>
-          <tr>
-            <%= form_for order, url: party_order_path(order.party, order), method: :patch do |f| %>
-            <td class="orders-cell"><%= f.text_field :comments, placeholder: 'Comments'%></td>
-            <td class="orders-cell"><%= f.submit 'Add', class: 'table-b' %></td>
-            <% end %>
-          </tr>
-        <% end %>
-      </table>
 
-      <h5>Bill Total: $<%= '%.2f' % @party.bill_total %></h5>
-    </div>
-  </div>
-  <div class="menu-area row">
+  <div class="orders-area row">
     <div class="twelve columns">
-      <table class="menu">
-        <thead>
-          <th class="menu-head">Category</th>
-          <th class="menu-head">Item</th>
-          <th class="menu-head">Description</th>
-          <th class="menu-head">Price</th>
-          <th class="menu-head">Add to Order</th>
-        </thead>
-        <% @menu_items.each do |item| %>
-        <tr class="menu-row">
-          <td class="menu-cell"><%= item.category %></td>
-          <td class="menu-cell"><%= item.name%></td>
-          <td class="menu-cell"><%= item.description%></td>
-          <td class="menu-cell">$<%= '%.2f' % item.price%></td>
-          <%= form_for @order, url: party_orders_path(@party) do |f| %>
-          <%= f.hidden_field :party_id, value: @party.id %>
-          <%= f.hidden_field :menu_item_id, value: item.id %>
-          <td class="menu-cell"><%= f.submit 'Add', class: 'table-b'%></td>
-          <% end %>
-        </tr>
-        <% end %>
-      </table>
+      <h3>Orders</h3>
     </div>
   </div>
+
+  <% @party_orders.each do |order| %>
+    <div class="party-order row">
+      <div class="three columns"><h5><%=order.menu_item.name%></h5></div>
+      <div class="two columns"><h5>$<%= '%.2f' % order.menu_item.price%></h5></div>
+      <div class="two columns"><h5><%=link_to 'Remove', party_order_path(@party, order), method: :delete%></h5></div>
+      <div class="three columns">
+        <%= form_for order, url: party_order_path(order.party, order), method: :patch do |f| %>
+        <%= f.text_field :comments, placeholder: 'Comments'%>
+      </div>
+      <div class="two columns">
+        <%= f.submit 'Add', class: 'main-b' %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="offset-by-three six columns">
+      <h4>Bill Total: $<%= '%.2f' % @party.bill_total %></h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="twelve columns">
+      <h3 class='menu-heading'>Appetizers</h3>
+    </div>
+  </div>
+
+  <div class="menu-row row">
+    <% @appetizers.each do |app| %>
+      <% if (@appetizers.index(app) % 3) == 0 %>
+        </div>
+        <div class="menu-row row">
+      <% end %>
+      <div class="four columns menu-box app">
+        <h4><%= app.name %></h4>
+        <h5>$<%= '%.2f' % app.price%></h5>
+        <p><%= app.description%></p>
+        <%= form_for @order, url: party_orders_path(@party) do |f| %>
+          <%= f.hidden_field :party_id, value: @party.id %>
+          <%= f.hidden_field :menu_item_id, value: app.id %>
+          <%= f.submit 'Add', class: 'main-b'%>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <div class="twelve columns">
+      <h3 class='menu-heading'>Entrees</h3>
+    </div>
+  </div>
+
+  <div class="menu-row row">
+    <% @entrees.each do |entree| %>
+      <% if (@entrees.index(entree) % 3) == 0 %>
+        </div>
+        <div class="menu-row row">
+      <% end %>
+      <div class="four columns menu-box entree">
+        <h4><%= entree.name %></h4>
+        <h5>$<%= '%.2f' % entree.price%></h5>
+        <p><%= entree.description%></p>
+        <%= form_for @order, url: party_orders_path(@party) do |f| %>
+          <%= f.hidden_field :party_id, value: @party.id %>
+          <%= f.hidden_field :menu_item_id, value: entree.id %>
+          <%= f.submit 'Add', class: 'main-b'%>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <div class="twelve columns">
+      <h3 class='menu-heading'>Drinks</h3>
+    </div>
+  </div>
+
+  <div class="menu-row row">
+    <% @drinks.each do |drink| %>
+      <% if (@drinks.index(drink) % 3) == 0 %>
+        </div>
+        <div class="menu-row row">
+      <% end %>
+      <div class="four columns menu-box drink">
+        <h4><%= drink.name %></h4>
+        <h5>$<%= '%.2f' % drink.price%></h5>
+        <p><%= drink.description%></p>
+        <%= form_for @order, url: party_orders_path(@party) do |f| %>
+          <%= f.hidden_field :party_id, value: @party.id %>
+          <%= f.hidden_field :menu_item_id, value: drink.id %>
+          <%= f.submit 'Add', class: 'main-b'%>
+        <% end %>
+        </div>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <div class="twelve columns">
+      <h3 class='menu-heading'>Desserts</h3>
+    </div>
+  </div>
+
+  <div class="menu-row row">
+    <% @desserts.each do |dessert| %>
+      <% if (@desserts.index(dessert) % 3) == 0 %>
+        </div>
+        <div class="menu-row row">
+      <% end %>
+      <div class="four columns menu-box dessert">
+        <h4><%= dessert.name %></h4>
+        <h5>$<%= '%.2f' % dessert.price%></h5>
+        <p><%= dessert.description%></p>
+        <%= form_for @order, url: party_orders_path(@party) do |f| %>
+          <%= f.hidden_field :party_id, value: @party.id %>
+          <%= f.hidden_field :menu_item_id, value: dessert.id %>
+          <%= f.submit 'Add', class: 'main-b'%>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
 </div>

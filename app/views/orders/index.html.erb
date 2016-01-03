@@ -7,27 +7,20 @@
     <div class="three columns"></div>
   </div>
 
-  <table class="all-orders">
-    <thead>
-      <th class="all-orders-head">Item</th>
-      <th class="all-orders-head">Party</th>
-      <th class="all-orders-head">Comments</th>
-      <th class="all-orders-head">Time Active</th>
-      <th class="all-orders-head">Mark As Done</th>
-    </thead>
-    <% @orders.each do |order| %>
-      <% if (order.done != 'yes') %>
-        <tr>
-          <td class="all-orders-cell"><%= order.menu_item.name %></td>
-          <td class="all-orders-cell"><%= order.party.name %></td>
-          <td class="all-orders-cell"><%= order.comments %></td>
-          <td class="timestamp all-orders-cell"><%= order.created_at.strftime('%B %d, %Y %H:%M:%S')%></td>
+  <% @orders.each do |order| %>
+    <% if order.done != 'yes' %>
+      <div class="party-order row">
+        <div class="three columns"><h4><%= order.menu_item.name %></h4></div>
+        <div class="two columns"><h4><%= order.party.name%></h4></div>
+        <div class="two columns"><h4><%= order.comments%></h4></div>
+        <div class="three columns"><h5 class="timestamp"><%= order.created_at.strftime('%B %d, %Y %H:%M:%S')%></h5></div>
+        <div class="two columns">
           <%= form_for order, url: party_order_path(order.party, order), method: :patch do |f| %>
             <%= f.hidden_field :done, value: 'yes' %>
-            <td class="all-orders-cell"><%= f.submit 'Done', class: 'table-b' %></td>
+            <%= f.submit 'Done', class: 'main-b' %>
           <% end %>
-      </tr>
-      <% end %>
+        </div>
+      </div>
     <% end %>
-  </table>
+  <% end %>
 </div>

@@ -17,33 +17,99 @@
       <div class="three columns"><%= f.label 'Price'%><%= f.number_field :price %></div>
   </div>
   <div class="new-item-submit row">
-    <div class="twelve columns">
-      <%= f.submit 'Create' %>
+    <div class="offset-by-three six columns">
+      <%= f.submit 'Create', class: 'main-b' %>
     </div>
   </div>
   <% end %>
-  <div class="menu-area row">
+
+  <div class="row">
     <div class="twelve columns">
-      <table class="menu">
-        <thead>
-          <th class="menu-head">Category</th>
-          <th class="menu-head">Item</th>
-          <th class="menu-head">Description</th>
-          <th class="menu-head">Price</th>
-          <th class="menu-head">Edit</th>
-          <th class="menu-head">Delete</th>
-        </thead>
-        <% @menu_items.each do |item| %>
-        <tr class="menu-row">
-          <td class="menu-cell"><%= item.category %></td>
-          <td class="menu-cell"><%= item.name%></td>
-          <td class="menu-cell"><%= item.description%></td>
-          <td class="menu-cell">$<%= '%.2f' % item.price%></td>
-          <td class="menu-cell"><%= link_to 'Edit', edit_menu_item_path(item), class: 'edit-link'%></td>
-          <td class="menu-cell"><%= link_to 'Delete', menu_item_path(item), method: :delete, class: 'del-link'%></td>
-        </tr>
-        <% end %>
-      </table>
+      <h3 class='menu-heading'>Appetizers</h3>
     </div>
   </div>
+
+  <div class="menu-row row">
+    <% @appetizers.each do |app| %>
+      <% if (@appetizers.index(app) % 3) == 0 %>
+        </div>
+        <div class="menu-row row">
+      <% end %>
+      <div class="four columns menu-box app">
+        <h4><%= app.name %></h4>
+        <h5>$<%= '%.2f' % app.price%></h5>
+        <p><%= app.description%></p>
+        <span class="item-box-link"><%= link_to 'Edit', edit_menu_item_path(app)%></span>
+        <span class="item-box-link"><%= link_to 'Delete', menu_item_path(app), method: :delete%></span>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <div class="twelve columns">
+      <h3 class='menu-heading'>Entrees</h3>
+    </div>
+  </div>
+
+  <div class="menu-row row">
+    <% @entrees.each do |entree| %>
+      <% if (@entrees.index(entree) % 3) == 0 %>
+        </div>
+        <div class="menu-row row">
+      <% end %>
+      <div class="four columns menu-box entree">
+        <h4><%= entree.name %></h4>
+        <h5>$<%= '%.2f' % entree.price%></h5>
+        <p><%= entree.description%></p>
+        <span class="item-box-link"><%= link_to 'Edit', edit_menu_item_path(entree)%></span>
+        <span class="item-box-link"><%= link_to 'Delete', menu_item_path(entree), method: :delete%></span>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <div class="twelve columns">
+      <h3 class='menu-heading'>Drinks</h3>
+    </div>
+  </div>
+
+  <div class="menu-row row">
+    <% @drinks.each do |drink| %>
+      <% if (@drinks.index(drink) % 3) == 0 %>
+        </div>
+        <div class="menu-row row">
+      <% end %>
+      <div class="four columns menu-box drink">
+        <h4><%= drink.name %></h4>
+        <h5>$<%= '%.2f' % drink.price%></h5>
+        <p><%= drink.description%></p>
+        <span class="item-box-link"><%= link_to 'Edit', edit_menu_item_path(drink)%></span>
+        <span class="item-box-link"><%= link_to 'Delete', menu_item_path(drink), method: :delete%></span>
+      </div>
+    <% end %>
+  </div>
+
+
+  <div class="row">
+    <div class="twelve columns">
+      <h3 class='menu-heading'>Desserts</h3>
+    </div>
+  </div>
+
+  <div class="menu-row row">
+    <% @desserts.each do |dessert| %>
+      <% if (@desserts.index(dessert) % 3) == 0 %>
+        </div>
+        <div class="menu-row row">
+      <% end %>
+      <div class="four columns menu-box dessert">
+        <h4><%= dessert.name %></h4>
+        <h5>$<%= '%.2f' % dessert.price%></h5>
+        <p><%= dessert.description%></p>
+        <span class="item-box-link"><%= link_to 'Edit', edit_menu_item_path(dessert)%></span>
+        <span class="item-box-link"><%= link_to 'Delete', menu_item_path(dessert), method: :delete%></span>
+      </div>
+    <% end %>
+  </div>
+
 </div>

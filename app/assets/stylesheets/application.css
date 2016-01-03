@@ -36,12 +36,15 @@ body {
 }
 
 .user-header {
-  margin: 2.5% 0;
+  margin: 1.5% 0;
   background-color: rgba(21, 20, 25, 0.4);
   border-bottom: 4px solid rgba(111, 123, 126, 0.68);
   padding: 20px 0 20px 0;
 }
 
+form.button_to {
+  margin-bottom: 1.5rem;
+}
 input[type='text'], input[type='password'], input[type='number'], select {
   color: black;
   width: 95%;
@@ -52,19 +55,19 @@ input[type='number'] {
 }
 
 .button_to .main-b {
-  width: 80%;
-  margin: 10px auto;
-  padding: 25px 0 60px 0;
+  width: 90%;
+  margin: 5px auto;
+  padding: 10px 0 45px 0;
   background: linear-gradient(to bottom right, rgb(32, 66, 133), rgb(48, 105, 147));
   color: rgb(221, 221, 221);
-  font-size: 2.5em;
+  font-size: 1.5em;
   text-shadow: 3px 1px 6px rgb(33, 33, 33);
 }
 
 .button_to .main-b:hover {
   background: linear-gradient(to bottom right, rgb(24, 55, 115), rgb(71, 129, 172));
   color: rgb(221, 221, 221);
-  font-size: 2.6em;
+  font-size: 1.6em;
   text-shadow: 3px 1px 2px rgb(150,150,150);
 }
 
@@ -85,53 +88,19 @@ input[type='number'] {
   text-shadow: none;
 }
 
-.button_to .new-b {
-  width: 80%;
-  margin-top: 25px;
-  margin-bottom: 0;
-  padding: 0;
-  background: linear-gradient(to bottom right, rgb(32, 133, 39), rgb(58, 166, 88));
-  color: rgb(235, 235, 235);
-  font-size: .75em;
-  text-shadow: none;
-}
-
-.button_to .new-b:hover {
-  background: linear-gradient(to bottom right, rgb(13, 88, 34), rgb(93, 189, 97));
-  color: rgb(255, 255, 255);
-  font-size: .75em;
-  text-shadow: none;
-}
-
 .button_to .nav-b {
-  width: 75%;
+  width: 85%;
   font-size: 1.2em;
 }
 
 .button_to .nav-b:hover {
-  font-size: 1.2em;
-}
-
-input[type="submit"].table-b {
-  width: 80%;
-  font-size: .75em;
-  padding: 0;
-  background: linear-gradient(to bottom right, rgb(32, 66, 133), rgb(48, 105, 147));
-  color: rgb(221, 221, 221);
-}
-
-input[type="submit"].table-b:hover {
-  font-size: .75em;
-}
-
-input[type="submit"].margin-adjust {
-  margin-top: 35px;
+  font-size: 1.3em;
 }
 
 input[type="submit"] {
   width: 30%;
-  margin: 10px auto;
-  padding: 10px 0 45px 0;
+  margin: 5px auto;
+  padding: 5px 0 40px 0;
   background: linear-gradient(to bottom right, rgb(32, 66, 133), rgb(48, 105, 147));
   color: rgb(221, 221, 221);
   font-size: 1.5em;
@@ -145,13 +114,25 @@ input[type="submit"]:hover {
   text-shadow: 3px 1px 2px rgb(150,150,150);
 }
 
+input.main-b {
+  width: 90%;
+}
+
+.button_to .green-b {
+  background: linear-gradient(to bottom right, rgb(15, 126, 26), rgb(57, 221, 83));
+}
+
+.button_to .green-b:hover {
+  background: linear-gradient(to bottom right, rgb(9, 115, 7), rgb(93, 221, 94));
+}
+
 #welcome-box {
   margin-top: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
 #welcome-box h1 {
-  font-size: 5em;
+  font-size: 3.75em;
 }
 
 #tip-tips {
@@ -170,6 +151,50 @@ input[type="submit"]:hover {
 
 .new-item-submit {
   margin-bottom: 30px;
+}
+
+.menu-heading {
+  width: 55%;
+  margin: 5px auto;
+  padding: 20px;
+  border-radius: 2.5%;
+  background-color: rgba(16, 38, 30, 0.74);
+  text-shadow: 2px 3px 8px black;
+}
+
+.menu-box {
+  min-height: 315px;
+  margin: 15px;
+  padding: 15px;
+  border: 2px solid rgb(78, 84, 87);
+  border-radius: 2.5%;
+  box-shadow: 2px 4px 10px rgb(13, 31, 20);
+}
+
+.app {
+  background-color: rgba(196, 228, 134, 0.3);
+}
+
+.entree {
+  background-color: rgba(235, 192, 162, 0.3);
+}
+
+.drink {
+  background-color: rgba(167, 199, 233, 0.3);
+}
+
+.dessert {
+  background-color: rgba(219, 176, 235, 0.3);
+}
+
+.menu-box h5, .menu-box p {
+  margin-bottom: 5px;
+  color: black;
+  font-weight: bold;
+}
+
+.menu-box h4 {
+  text-shadow: 2px 1px 5px black;
 }
 
 table {
@@ -199,12 +224,7 @@ td:last-child, th:last-child {
   margin: -20px 0;
 }
 
-.menu {
-  background-color: rgba(10, 25, 20, 0.38);
-  border-top-left-radius: 3%;
-  border-top-right-radius: 3%;
 
-}
 .items {
   margin: 0 auto;
 }
@@ -229,6 +249,21 @@ td:last-child, th:last-child {
   margin: 15px;
   padding: 15px;
   font-size: 1.4em;
+}
+
+.party-order {
+  background-color: rgba(172, 196, 182, 0.2);
+  border-top: 2px solid rgb(61, 68, 64);
+  padding: 5px;
+}
+
+.party-order form, .party-order h5{
+  margin-bottom: .5rem;
+}
+
+.party-order input {
+  margin-top: .6rem;
+  margin-bottom: .5rem;
 }
 
 .receipt-total {

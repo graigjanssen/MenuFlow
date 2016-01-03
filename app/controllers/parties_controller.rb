@@ -2,13 +2,14 @@ class PartiesController < ApplicationController
 
   def index
     @party = Party.new
-    @parties = Party.all
+    @active_parties = Party.where(paid: nil)
+    @paid_parties = Party.where(paid: 'yes')
   end
 
   def show
     @current_party = Party.find(params[:id])
   end
-  
+
   def create
     Party.create( party_params )
     redirect_to parties_path
