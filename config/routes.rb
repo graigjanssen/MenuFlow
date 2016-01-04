@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  get '/currency' => 'application#toggle_currency'
   get '/log_in' => 'users#log_in'
   get '/new_user' => 'users#new'
   get '/profile' => 'users#profile'

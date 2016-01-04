@@ -9,5 +9,4 @@ module ApplicationHelper
     redirect_to log_in_path unless current_user
   end
 
-
 end

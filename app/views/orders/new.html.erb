@@ -15,7 +15,7 @@
   <% @party_orders.each do |order| %>
     <div class="party-order row">
       <div class="three columns"><h5><%=order.menu_item.name%></h5></div>
-      <div class="two columns"><h5>$<%= '%.2f' % order.menu_item.price%></h5></div>
+      <div class="two columns"><h5><%=display_currency(order.menu_item.price)%></h5></div>
       <div class="two columns"><h5><%=link_to 'Remove', party_order_path(@party, order), method: :delete%></h5></div>
       <div class="three columns">
         <%= form_for order, url: party_order_path(order.party, order), method: :patch do |f| %>
@@ -30,7 +30,7 @@
 
   <div class="row">
     <div class="offset-by-three six columns">
-      <h4>Bill Total: $<%= '%.2f' % @party.bill_total %></h4>
+      <h4>Bill Total: <%=display_currency(@party.bill_total) %></h4>
     </div>
   </div>
 
@@ -48,7 +48,7 @@
       <% end %>
       <div class="four columns menu-box app">
         <h4><%= app.name %></h4>
-        <h5>$<%= '%.2f' % app.price%></h5>
+        <h5><%= display_currency(app.price)%></h5>
         <p><%= app.description%></p>
         <%= form_for @order, url: party_orders_path(@party) do |f| %>
           <%= f.hidden_field :party_id, value: @party.id %>
