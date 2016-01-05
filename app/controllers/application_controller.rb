@@ -4,5 +4,21 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include ApplicationHelper
 
+  before_filter :set_exchange_rate
+
+  def set_exchange_rate
+    Money.add_rate("USD","EUR",0.92)
+  end
+
+  def toggle_currency
+    if $currency == "USD"
+      $currency = "EUR"
+    elsif $currency == "EUR"
+      $currency = "USD"
+    else
+      $currency = "USD"
+    end
+    redirect_to root_path
+  end
 
 end

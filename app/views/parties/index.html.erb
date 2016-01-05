@@ -30,7 +30,7 @@
       <div class="three columns item-box">
         <h4><%= party.name %></h4>
         <h5>Party of <%= party.size %></h5>
-        <h5 class="balance">$<%= '%.2f' % party.bill_total %></h5>
+        <h5 class="balance"><%= display_currency(party.bill_total) %></h5>
         <div class="order-b">
           <%= button_to 'Orders', new_party_order_path(party), method: :get, class: 'main-b green-b'%>
         </div>
@@ -58,7 +58,7 @@
       <div class="three columns item-box">
         <h4><%= party.name %></h4>
         <h5>Party of <%= party.size %></h5>
-        <h5 class="balance">$<%= '%.2f' % party.bill_total %></h5>
+        <h5 class="balance"><%= display_currency(party.bill_total) %></h5>
         <span class="item-box-link"><%= link_to 'Receipt', party_path(party)%></span>
         <span class="item-box-link"><%= link_to 'Delete', party_path(party), method: :delete%></span>
       </div>

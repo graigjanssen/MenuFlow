@@ -37,7 +37,7 @@
       <% end %>
       <div class="four columns menu-box app">
         <h4><%= app.name %></h4>
-        <h5>$<%= '%.2f' % app.price%></h5>
+        <h5><%= display_currency(app.price)%></h5>
         <p><%= app.description%></p>
         <span class="item-box-link"><%= link_to 'Edit', edit_menu_item_path(app)%></span>
         <span class="item-box-link"><%= link_to 'Delete', menu_item_path(app), method: :delete%></span>
@@ -59,7 +59,7 @@
       <% end %>
       <div class="four columns menu-box entree">
         <h4><%= entree.name %></h4>
-        <h5>$<%= '%.2f' % entree.price%></h5>
+        <h5><%= display_currency(entree.price)%></h5>
         <p><%= entree.description%></p>
         <span class="item-box-link"><%= link_to 'Edit', edit_menu_item_path(entree)%></span>
         <span class="item-box-link"><%= link_to 'Delete', menu_item_path(entree), method: :delete%></span>
@@ -81,7 +81,7 @@
       <% end %>
       <div class="four columns menu-box drink">
         <h4><%= drink.name %></h4>
-        <h5>$<%= '%.2f' % drink.price%></h5>
+        <h5><%= display_currency(drink.price)%></h5>
         <p><%= drink.description%></p>
         <span class="item-box-link"><%= link_to 'Edit', edit_menu_item_path(drink)%></span>
         <span class="item-box-link"><%= link_to 'Delete', menu_item_path(drink), method: :delete%></span>
@@ -104,7 +104,7 @@
       <% end %>
       <div class="four columns menu-box dessert">
         <h4><%= dessert.name %></h4>
-        <h5>$<%= '%.2f' % dessert.price%></h5>
+        <h5><%= display_currency(dessert.price)%></h5>
         <p><%= dessert.description%></p>
         <span class="item-box-link"><%= link_to 'Edit', edit_menu_item_path(dessert)%></span>
         <span class="item-box-link"><%= link_to 'Delete', menu_item_path(dessert), method: :delete%></span>
